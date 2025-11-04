@@ -18,5 +18,8 @@
     <ClCompile Include="itmo_pj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="homework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
