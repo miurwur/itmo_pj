@@ -32,7 +32,7 @@ namespace homework
 	}
 
 	// fibonacci
-	void problem3()
+	void problem2()
 	{	
 		int A;
 		cout << "A: ";
@@ -51,6 +51,27 @@ namespace homework
 			fib_1 = fib_2;
 			fib_2 = fib;
 		}
+	}
+
+	// max number multiplied by 7
+	void problem3()
+	{
+		int a; int b;
+		int flag = 0;
+		cout << "a: "; cin >> a;
+		cout << "b: "; cin >> b;
+		int size = b - a + 1;
+		
+		vector<int> nums(size);
+		for (int i = 0; i < size; i++)
+		{
+			nums[i] = a + i;
+		}
+		for (int i = size - 1; i >= 0; i--)
+		{
+			if (nums[i] % 7 == 0) { flag = 1;  cout << nums[i] << endl; break; }
+		}
+		if (flag == 0) { cout << -1 << endl; }
 	}
 }
 
