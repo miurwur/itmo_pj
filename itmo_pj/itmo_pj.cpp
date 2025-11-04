@@ -116,15 +116,15 @@ namespace problems3
 
 
 
-int main() {
-	problems3::problem1();
-	/*int result = problems3::problem2();
-	cout << "Count of numbers equal to k: " << result << endl;*/
-	/*int result = problems3::problem3();
-	cout << "ans: " << result << endl;*/
-	/*homework_problems::problem5();*/
-	system("pause");
-}
+//int main() {
+//	problems3::problem1();
+//	/*int result = problems3::problem2();
+//	cout << "Count of numbers equal to k: " << result << endl;*/
+//	/*int result = problems3::problem3();
+//	cout << "ans: " << result << endl;*/
+//	/*homework_problems::problem5();*/
+//	system("pause");
+//}
 
 
 
