@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -19,9 +20,22 @@ namespace homework
 		cout << "Even summ: " << res_chet << endl;
 		cout << "Odd summ: " << res_ne_chet << endl;
 	}
+	void problem2()
+	{
+		int N;
+		cout << "N: ";
+		cin >> N;
+		vector<int> nums(N);
+		cout << "Number of your elements: " << N << "\n";
+		for (int i = 0; i < N; i++)
+		{
+			cin >> nums[i];
+		}
+		
+	}
 }
 
 int main() {
-	homework::problem1();
+	homework::problem2();
 	system("pause");
 }
