@@ -30,9 +30,31 @@ namespace homework
 		}
 		cout << "number of minimal elements = "  << counter << endl;
 	}
+
+	// fibonacci
+	void problem3()
+	{	
+		int A;
+		cout << "A: ";
+		cin >> A;
+		int fib_1 = 1; int fib_2 = 1;
+		int flag = 0;
+		if (A == fib_1) { cout << "fibonacci index: 1" << endl; flag = 1; }
+		for (int i = 3;; i++)
+		{	
+			int fib = fib_1 + fib_2;
+			if (fib == A) { cout << "fibonacci index: " << i << endl; break; }
+			else if (fib > A and not flag)
+			{
+				cout << -1 << endl; break; 
+			}
+			fib_1 = fib_2;
+			fib_2 = fib;
+		}
+	}
 }
 
 int main() {
-	homework::problem1();
+	homework::problem3();
 	system("pause");
 }
