@@ -31,7 +31,15 @@ namespace homework
 		{
 			cin >> nums[i];
 		}
-		
+		int minimum = nums[0];
+		int counter = 0;
+		for (int i = 0; i < N; i++)
+		{
+			if (nums[i] == minimum) {
+				counter++;
+			}
+		}
+		cout << "number of minimal elements = "  << counter << endl;
 	}
 }
 
