@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+#include "simpleExp.h"
+
 using namespace std;
 
 namespace homework
@@ -79,14 +81,23 @@ namespace homework
 	{
 		string dna;
 		cout << "dna: "; cin >> dna;
-		for (size_t i = 0; i < dna.length(); i++)
+		for (size_t i = 0; i < dna.length(); ++i)
 		{
-
+			switch (dna[i]) 
+			{
+			case 'A': dna[i] = 'T'; break;
+			case 'T': dna[i] = 'A'; break;
+			case 'C': dna[i] = 'G'; break;
+			case 'G': dna[i] = 'C'; break;
+			default:
+				break;
+			}
 		}
+		cout << dna << endl;
 	}
 }
 
 int main() {
-	homework::problem3();
+	homework::problem4();
 	system("pause");
 }
