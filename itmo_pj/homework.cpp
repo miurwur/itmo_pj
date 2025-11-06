@@ -73,6 +73,17 @@ namespace homework
 		}
 		if (flag == 0) { cout << -1 << endl; }
 	}
+
+	// DNA
+	void problem4()
+	{
+		string dna;
+		cout << "dna: "; cin >> dna;
+		for (size_t i = 0; i < dna.length(); i++)
+		{
+
+		}
+	}
 }
 
 int main() {

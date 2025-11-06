@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="class.cpp" />
     <ClCompile Include="homework.cpp" />
     <ClCompile Include="itmo_pj.cpp" />
   </ItemGroup>
