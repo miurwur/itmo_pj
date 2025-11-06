@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath> 
 
 #include "simpleExp.h"
 
@@ -97,7 +98,36 @@ namespace homework
 	}
 }
 
+
+//namespace Labs  // если закомментить этот namespace то код будет работать, афигенно, восторг, why did we even write this
+//{
+//	double ComplexNumber::re() const {
+//		return re_;
+//	}
+//
+//	double ComplexNumber::im() const {
+//		return im_;
+//	}
+//
+//	double ComplexNumber::abs() const {
+//		return sqrt(im_ * im_ + re_ * re_);
+//	}
+//
+//	ComplexNumber ComplexNumber::operator+(const ComplexNumber& other) const {
+//		return ComplexNumber(re_ + other.re(), im_ + other.im());
+//	}
+//
+//}
+
+
 int main() {
-	homework::problem4();
+
+	auto imaginary = Labs::ComplexNumber(0, 1);
+	auto real = Labs::ComplexNumber(1, 0);
+	auto result = imaginary + real;
+	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl;
+
+	/*homework::problem1();*/
 	system("pause");
+	return 0;
 }
