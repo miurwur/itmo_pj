@@ -162,6 +162,25 @@ namespace homework
 		cout << a << endl;
 	}
 
+
+	//Последовательность состоит из натуральных чисел и завершается числом 0. Определите количество элементов этой 
+	// последовательности, которые равны ее наибольшему элементу.
+	void problem8()
+	{
+		int i = 1;
+		int max_el = 0;
+		vector<int>arr;
+		int counter = 0;
+		while (i != 0)
+		{	
+			cin >> i;
+			arr.push_back(i);
+			if (i > max_el) { counter = 1;  max_el = i; }
+			else if (i == max_el) { counter++;}
+		}
+		cout << counter;
+	}
+
 }
 
 
@@ -193,7 +212,7 @@ int main() {
 	auto result = imaginary + real;
 	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl; complex number end  */ 
 
-	homework::problem7();
+	homework::problem8();
 	system("pause");
 	return 0;
 }
