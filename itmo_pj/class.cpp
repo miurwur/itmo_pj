@@ -83,9 +83,9 @@ namespace Labs
     }
 }
 
-int main() {
-    Labs::Tests::complexNumber();
-    Labs::Tests::polynom();
-
-    system("pause");
-}
+//int main() {
+//    Labs::Tests::complexNumber();
+//    Labs::Tests::polynom();
+//
+//    system("pause");
+//}
