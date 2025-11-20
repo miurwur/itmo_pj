@@ -161,14 +161,14 @@ namespace homework
 //}
 
 
-int main() {
-
-	/*auto imaginary = Labs::ComplexNumber(0, 1);    complex number start
-	auto real = Labs::ComplexNumber(1, 0);
-	auto result = imaginary + real;
-	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl; complex number end  */ 
-
-	homework::problem6();
-	system("pause");
-	return 0;
-}
+//int main() {
+//
+//	/*auto imaginary = Labs::ComplexNumber(0, 1);    complex number start
+//	auto real = Labs::ComplexNumber(1, 0);
+//	auto result = imaginary + real;
+//	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl; complex number end  */ 
+//
+//	homework::problem6();
+//	system("pause");
+//	return 0;
+//}
