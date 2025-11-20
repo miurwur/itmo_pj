@@ -82,7 +82,7 @@ namespace homework
 	{
 		string dna;
 		cout << "dna: "; cin >> dna;
-		for (size_t i = 0; i < dna.length(); ++i)
+		for (int i = 0; i < dna.length(); ++i)
 		{
 			switch (dna[i]) 
 			{
@@ -96,10 +96,36 @@ namespace homework
 		}
 		cout << dna << endl;
 	}
+
+	// По данному числу N распечатайте все целые значения степени двойки, не превосходящие N, в порядке возрастания.
+	#include <math.h>
+	void problem5()
+	{
+		int N; 
+		cout << "N: ";
+		cin >> N;
+		int i = 1;
+		while (i < N)
+		{
+			cout << i << " ";
+			i *= 2;
+		}
+		cout << endl;
+	}
+
+
+	// Сначала на вход поступает длина последовательности N. Затем элементы последовательности – целые числа.
+	// Напишите программу, которая подсчитывает количество положительных чисел среди элементов последовательности.
+	void problem6()
+	{
+
+	}
+
+
 }
 
 
-//namespace Labs  // если закомментить этот namespace то код будет работать, афигенно, восторг, why did we even write this
+//namespace Labs  // если закомментить этот namespace то код будет работать, афигенно, восторг
 //{
 //	double ComplexNumber::re() const {
 //		return re_;
@@ -122,12 +148,12 @@ namespace homework
 
 int main() {
 
-	auto imaginary = Labs::ComplexNumber(0, 1);
+	/*auto imaginary = Labs::ComplexNumber(0, 1);    complex number start
 	auto real = Labs::ComplexNumber(1, 0);
 	auto result = imaginary + real;
-	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl;
+	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl; complex number end  */ 
 
-	/*homework::problem1();*/
+	homework::problem5();
 	system("pause");
 	return 0;
 }
