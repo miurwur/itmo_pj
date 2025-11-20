@@ -118,7 +118,22 @@ namespace homework
 	// Ќапишите программу, котора€ подсчитывает количество положительных чисел среди элементов последовательности.
 	void problem6()
 	{
-
+		int N;
+		cout << "N: "; cin >> N;
+		vector<int>arr(N);
+		for (int i = 0; i < N; ++i)
+		{
+			int a;  cin >> a;
+			arr[i] = a;
+		}
+		int i = 0; vector<int>arrf(N);
+		int a = 0;
+		while (i < N)
+		{
+			if (arr[i] > 0) { arrf[i] = arr[i]; a++; }
+			i++;
+		}
+		cout << a << endl;
 	}
 
 
@@ -153,7 +168,7 @@ int main() {
 	auto result = imaginary + real;
 	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl; complex number end  */ 
 
-	homework::problem5();
+	homework::problem6();
 	system("pause");
 	return 0;
 }
