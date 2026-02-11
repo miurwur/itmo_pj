@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <cmath> 
+#include <unordered_set>
 
 #include "simpleExp.h"
 
@@ -181,6 +182,28 @@ namespace homework
 		cout << counter;
 	}
 
+
+	//Даны два числа. Определить цифры, входящие в запись как первого, так и второго числа. Программа должна вывести цифры,
+	// которые имеются в обоих числах, через пробел. Цифры выводятся в порядке их нахождения в первом числе.
+	void problem9()
+	{
+		int a; cout << "first number: "; cin >> a;
+		int b; cout << "second number: "; cin >> b;
+		string as = to_string(a); string bs = to_string(b);
+
+		unordered_set<char> digits_in_b(bs.begin(), bs.end()); // цифры второго числа
+		unordered_set<char> printed; // чтобы не повторять цифры
+
+		for (char ch : as)
+		{
+			if (digits_in_b.count(ch) && !printed.count(ch))
+			{
+				cout << ch << " ";
+				printed.insert(ch);
+			}
+		}
+		cout << endl;
+	}
 }
 
 
@@ -205,14 +228,242 @@ namespace homework
 //}
 
 
+#include <iostream>
+#include <vector>
+#include <cmath> // для sqrt
+
+using namespace std;
+
+class Point {
+public:
+	vector<double> coords; // тут храним координаты
+
+	// Конструктор, где передаем список координат
+	Point(const vector<double>& c) {
+		coords = c; // просто вставляем
+	}
+
+	// Метод для вычисления расстояния до другой точки
+	double distanceTo(const Point& other) {
+		// проверяем, что в обеих точках одинаковое число координат
+		if (coords.size() != other.coords.size()) {
+			cout << "Error: The dimensions of the points do not match." << endl;
+			exit(EXIT_FAILURE); // завершаем программу с ошибкой
+		}
+		double sum = 0; // сумма квадратов разниц
+		for (size_t i = 0; i < coords.size(); i++) {
+			double diff = coords[i] - other.coords[i]; // разница по координате
+			sum += diff * diff; // добавляем в сумму квадрат разницы
+		}
+		return sqrt(sum); // берем корень, т.е. находим расстояние
+	}
+};
+
+//int main() {
+//	// создадим две точки в 3D пространстве
+//	Point p1({ 1.0, 2.0, 3.0 });
+//	Point p2({ 4.0, 5.0, 6.0 });
+//
+//	//// создадим две точки в 2D пространстве
+//	//Point p1({ 1.0, 2.0});
+//	//Point p2({ 4.0, 5.0, 8.0});
+//
+//	// выводим расстояние между ними
+//	cout << "Distance: " << p1.distanceTo(p2) << endl;
+//
+//	return 0;
+//}
+
+
+
+
+
+
+#include <iostream>    
+#include <vector>      
+#include <algorithm>    // для сортировки
+
+using namespace std;
+
+// Класс для представления города
+class City {
+public:
+	string name;        // название города
+	int population;     // численность населения
+	bool hasMetro;      // наличие метро 
+	int airportCount;   // количество аэропортов
+	double rating;      // рейтинг качества жизни
+
+	// Конструктор класса
+	// принимает: название, население, наличие метро, кол-во аэропортов
+	City(const string& n, int p, bool m, const vector<string>& airports)
+		: name(n), population(p), hasMetro(m), airportCount(static_cast<int>(airports.size())), rating(0) {
+		calculateRating();
+	}
+
+	void calculateRating() {
+		rating = 0;
+
+		if (population > 1000000) rating += 40; // баллы на население
+		else if (population > 100000) rating += 20;
+		else rating += 0;
+
+		if (hasMetro) rating += 30; // баллы за наличие метро
+
+		rating += airportCount * 10; // баллы за наличие аэропортов
+	}
+
+	// Нужна для функции sort() - определяем как сравнивать города
+	bool operator<(const City& other) const {
+		// Сортируем по убыванию рейтинга (больший рейтинг считается "меньшим" для sort)
+		return rating > other.rating;  // Если наш рейтинг БОЛЬШЕ другого, мы "меньше"
+	}
+};
+
+
+//int main() {
+//
+//	City Ms = City("Москва", 13000000, true,
+//		{ "Внуково", "Шереметьево", "Домодедово", "Жуковский" });
+//
+//	City Sm = City("Смоленск", 330000, false, {}); 
+//
+//	City Vg = City("Воркута", 60000, false, { "Воркута" });
+//
+//	// создаем вектор из наших городов
+//	vector<City> topCities = { Ms, Sm, Vg };  // помещаем в него все три города
+//
+//	// сортируем вектор городов
+//	sort(topCities.begin(),   // начало вектора
+//		topCities.end());    // конец вектора
+//	// теперь города в векторе упорядочены по убыванию рейтинга
+//
+//	// выводим результат
+//	cout << "Raiting:" << endl;
+//
+//	// Проходим по всем городам в векторе
+//	for (size_t i = 0; i < topCities.size(); ++i) {
+//		// выводим место, название и рейтинг
+//		cout << (i + 1) << ". " << topCities[i].name
+//			<< " | рейтинг: " << topCities[i].rating << " баллов" << endl;
+//	}
+//
+//	return 0; 
+//}
+
+
+
+#include <iostream>
+#include <vector>
+#include <string>   
+#include <algorithm>  
+
+using namespace std;
+
+// хранение дз
+struct HomeTasks : public vector<string> {};
+
+// роли пользователей
+enum Role { Admin, Teacher, Student };
+
+
+// пользователь (имя, email, роль, id группы)
+class User {
+private:
+	string name;
+	string email;
+	Role role;
+	vector<string> enrolledGroups;
+
+public:
+	// конструктор
+	User(const string& n, const string& e, Role r) : name(n), email(e), role(r) {}
+
+	// ггеттер для имени
+	string getName() const { return name; }
+
+	// геттер для роли
+	Role getRole() const { return role; }
+
+	// метод для группы
+	void enrollInGroup(const string& groupId) {
+		enrolledGroups.push_back(groupId);
+	}
+
+};
+
+// Класс учебной группы (id группы, курс, преподаватель, дз)
+class Group {
+private:
+	string groupId;
+	string courseName;
+	User* teacher;
+	vector<User*> students;
+	HomeTasks tasks;
+
+public:
+	// Конструктор для группы
+	Group(const string& id, const string& course) : groupId(id), courseName(course), teacher(nullptr) {}
+
+	// Метод для преподавателя
+	bool assignTeacher(User* user) {
+		if (user->getRole() != Teacher) return false;
+		teacher = user;
+		user->enrollInGroup(groupId);
+		return true;
+	}
+
+	// добавление дз
+	void addTask(const string& task) {
+		tasks.push_back(task);
+	}
+
+	// вывод всей инфы о группе
+	void displayInfo() const {
+		cout << "Group: " << groupId << " (" << courseName << ")" << endl;
+
+		if (teacher)  // Если преподаватель назначен
+			cout << "Teacher: " << teacher->getName() << endl;
+
+		cout << "Students: " << students.size() << endl;
+		cout << "Tasks: " << tasks.size() << endl;
+	}
+};
+
 int main() {
+	User teacher("Vladislav Kazankov", "kazankov@mail.com", Teacher);
+	User student1("Anya", "anya@gmail.com", Student);
+	Group group("P3122", "C++");
+
+	group.assignTeacher(&teacher);
+	group.addStudent(&student1);
+	group.addTask("homework");
+	group.displayInfo();
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int main() {
 
 	/*auto imaginary = Labs::ComplexNumber(0, 1);    complex number start
 	auto real = Labs::ComplexNumber(1, 0);
 	auto result = imaginary + real;
 	std::cout << "Result: " << result.re() << " + " << result.im() << "i" << std::endl; complex number end  */ 
 
-	homework::problem8();
-	system("pause");
-	return 0;
-}
+//	homework::problem8();
+//	system("pause");
+//	return 0;
+//}
